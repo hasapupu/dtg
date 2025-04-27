@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c1pm3cevxp0yn"]
+
+[ext_resource type="Shader" path="res://scripts/tp.gdshader" id="1_cw5o3"]
+
+[resource]
+shader = ExtResource("1_cw5o3")
+shader_parameter/progress = 1.0
+shader_parameter/noise_desnity = 4.0
+shader_parameter/beam_size = 0.034
+shader_parameter/color = Color(0, 1.02, 1.2, 1)
