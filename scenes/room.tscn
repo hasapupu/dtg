@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://coh4v0upm21qd"]
+
+[ext_resource type="Texture2D" uid="uid://d2jj6yb205uki" path="res://sprites/leconcept1.png" id="1_xkk8y"]
+[ext_resource type="PackedScene" uid="uid://tml5tuvdvj0v" path="res://scenes/player.tscn" id="2_140bg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ngvox"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_etxls"]
+normal = Vector2(0, -3.195)
+distance = -0.000551609
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioqsd"]
+size = Vector2(81, 35.25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oykfb"]
+radius = 22.0
+height = 52.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xkk8y")
+region_enabled = true
+region_rect = Rect2(80, 0, 272, 240)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+physics_material_override = SubResource("PhysicsMaterial_ngvox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 118)
+shape = SubResource("WorldBoundaryShape2D_etxls")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-135, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_etxls")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(134, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_etxls")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, -71)
+rotation = 3.14171
+shape = SubResource("WorldBoundaryShape2D_etxls")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-91.5, 103.625)
+shape = SubResource("RectangleShape2D_ioqsd")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(109, 90)
+shape = SubResource("CapsuleShape2D_oykfb")
+
+[node name="Node2D" parent="." instance=ExtResource("2_140bg")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
